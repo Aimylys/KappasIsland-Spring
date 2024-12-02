@@ -1,7 +1,7 @@
 package com.ac.kappasisland.Controller;
 
-import com.ac.kappasisland.Entities.ArticleEntity;
-import com.ac.kappasisland.Service.ArticleService;
+import com.ac.kappasisland.Entities.ItemEntity;
+import com.ac.kappasisland.Service.ItemService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,34 +18,34 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/api/articles")
+@CrossOrigin(origins = "http://localhost:52804")
+@RequestMapping("/api/items")
 public class ArticleController {
     
     // Our bridge to the entity
     @Autowired
-    private ArticleService articleService;
+    private ItemService itemService;
 
     // The get method
     @GetMapping
-    public List<ArticleEntity> getAll(){
+    public List<ItemEntity> getAll(){
         // Return all articles in database
-        return articleService.findAll();
+        return itemService.findAll();
     }
 
     // The delete method
     @DeleteMapping("/del/{id}")
-    public void deleteArticle(@PathVariable Long id) {
+    public void deleteItem(@PathVariable Long id) {
         // Delete the specified element from database
-        articleService.deleteArticle(id);
+        itemService.deleteItem(id);
     }
 
     // The post method
     @PostMapping("/add")
-    public ResponseEntity<ArticleEntity> createArticle(@RequestBody ArticleEntity article) {
+    public ResponseEntity<ItemEntity> createItem(@RequestBody ItemEntity item) {
         // Save the entity to the database
-        ArticleEntity savedArticle = articleService.saveArticle(article);
+        ItemEntity savedItem = itemService.saveItem(item);
         // Return success
-        return new ResponseEntity<>(savedArticle, HttpStatus.CREATED);
+        return new ResponseEntity<>(savedItem, HttpStatus.CREATED);
     }
 }

@@ -31,7 +31,7 @@ public class WebSecurityConfig{
         // We create a configuration,
         CorsConfiguration configuration = new CorsConfiguration();
         // allow our angular project in,
-        configuration.setAllowedOrigins(List.of("http://localhost:4200"));
+        configuration.setAllowedOrigins(List.of("http://localhost:52804"));
         // give it all the permissions,
         configuration.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
         // allow it's header
