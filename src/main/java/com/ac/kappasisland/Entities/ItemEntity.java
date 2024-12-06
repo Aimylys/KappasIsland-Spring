@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "article")
-public class ArticleEntity {
+@Table(name = "items")
+public class ItemEntity {
 
     // This represents the column of our database
     @Id
@@ -22,13 +22,13 @@ public class ArticleEntity {
     private long id;
 
     @Column(nullable = false)
-    private String libelle;
+    private String name;
 
     @Column(nullable = false)
-    private int quantity;
+    private String description;
 
     @Column(nullable = false)
-    private float price;
+    private String games;
 
 
     // Getters and setters
@@ -40,27 +40,16 @@ public class ArticleEntity {
         this.id = id;
     }
     
-    public String getLibelle() {
-        return libelle;
+    public String getName() {
+        return name;
     }
 
-    public void setLibelle(String newLib){
-        this.libelle = newLib;
+    public String getDescription(){
+        return description;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public String getGames() {
+        return games;
     }
 
-    public void setQuantity(int newQuan){
-        this.quantity = newQuan;
-    }
-
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float newPrice){
-        this.price = newPrice;
-    }
 }
