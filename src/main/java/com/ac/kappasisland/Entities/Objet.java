@@ -13,10 +13,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "items")
-public class ItemEntity {
+@Table(name = "objet")
+public class Objet {
 
-    // This represents the column of our database
+    // Colonne de la database
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -31,7 +31,7 @@ public class ItemEntity {
     private String games;
 
 
-    // Getters and setters
+    // Getters et setters
     public long getId() {
         return id;
     }

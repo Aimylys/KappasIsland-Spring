@@ -17,7 +17,7 @@ public class WebSecurityConfig{
 
     @Bean
     public SecurityFilterChain SecurityFilterChain(HttpSecurity http) throws Exception {
-        // CORS is keeping us from getting our elements, so we disble it
+        // CORS nous empêche d’obtenir nos éléments, donc nous le démantelons
         http
                 .cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
@@ -28,17 +28,17 @@ public class WebSecurityConfig{
 
     @Bean
     UrlBasedCorsConfigurationSource corsConfigurationSource() {
-        // We create a configuration,
+        // Nous créons une configuration,
         CorsConfiguration configuration = new CorsConfiguration();
-        // allow our angular project in,
+        // permettre notre projet Angular,
         configuration.setAllowedOrigins(List.of("http://localhost:52804"));
-        // give it all the permissions,
+        // lui donner toutes les permissions,
         configuration.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
-        // allow it's header
+        // autoriser son en-tête,
         configuration.setAllowedHeaders(List.of("*"));
-        // and now we allow it forward.
+        // et maintenant nous le permettons.
         configuration.setAllowCredentials(true);
-        // Now we need to save the config!
+        // Maintenant, il faut sauvegarder la configuration !
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
